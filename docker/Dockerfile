@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorrt:21.12-py3
+FROM nvcr.io/nvidia/tensorrt:22.12-py3
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && apt-get install libssl-dev -y && apt-get install -y curl software-properties-common wget sudo
