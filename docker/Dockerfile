@@ -64,4 +64,4 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.
 RUN mkdir /bagua 
 COPY examples/ /bagua/examples
 COPY ./ /var/tmp/bagua
-RUN cd /var/tmp/bagua && python3 -m pip install .
+RUN cd /var/tmp/bagua && python3 -m pip install . && python3 -m pip wheel .
