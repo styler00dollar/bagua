@@ -1,7 +1,7 @@
 FROM nvcr.io/nvidia/tensorrt:22.12-py3
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update -y && apt-get install libssl-dev -y && apt-get install -y curl software-properties-common wget sudo
+RUN apt-get update -y && apt-get install pkg-config libssl-dev -y && apt-get install -y curl software-properties-common wget sudo
 RUN add-apt-repository ppa:git-core/ppa -y
 RUN sed -i 's/mozilla\/DST_Root_CA_X3.crt/!mozilla\/DST_Root_CA_X3.crt/g' /etc/ca-certificates.conf && update-ca-certificates
 RUN curl -sSf https://apt.kitware.com/kitware-archive.sh | sh
