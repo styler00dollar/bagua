@@ -61,7 +61,7 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.
     cp /workspace/bin/cmake /usr/bin/cmake && cp /workspace/bin/cmake /usr/lib/x86_64-linux-gnu/cmake && \
     cp /workspace/bin/cmake /usr/local/bin/cmake && cp -r /workspace/share/cmake-3.23 /usr/local/share/
 
-RUN git clone https://github.com/NVIDIA/nccl && cd nccl && make -j32 && make install
+RUN git clone https://github.com/NVIDIA/nccl && cd nccl && make -j$(nproc) && make install
 
 RUN mkdir /bagua 
 COPY examples/ /bagua/examples
