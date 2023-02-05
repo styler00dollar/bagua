@@ -55,6 +55,12 @@ RUN yes | python3 -m pip install -U redis
 # pytorch-lightning
 RUN pip3 install pytorch-lightning
 
+# cmake
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-linux-x86_64.sh && \
+    chmod +x cmake-3.23.0-rc1-linux-x86_64.sh && sh cmake-3.23.0-rc1-linux-x86_64.sh --skip-license && \
+    cp /workspace/bin/cmake /usr/bin/cmake && cp /workspace/bin/cmake /usr/lib/x86_64-linux-gnu/cmake && \
+    cp /workspace/bin/cmake /usr/local/bin/cmake && cp -r /workspace/share/cmake-3.23 /usr/local/share/
+
 RUN mkdir /bagua 
 COPY examples/ /bagua/examples
 COPY ./ /var/tmp/bagua
